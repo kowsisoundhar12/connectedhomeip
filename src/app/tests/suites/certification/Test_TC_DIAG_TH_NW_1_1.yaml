@@ -12,10 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: 10.3.1. [TC-DM-3.1] Network Commissioning Attributes
+name: 51.1. TC-DIAG-TH_NW-1.1 ResetCounts Command[DUT Server]
 
 config:
-    cluster: "Network Commissioning"
+    cluster: "Thread Network Diagnostics"
     endpoint: 0
 
 tests:
@@ -23,18 +23,11 @@ tests:
       cluster: "DelayCommands"
       command: "WaitForCommissionee"
 
-    - label: "Query MaxNetworks"
-      disabled: true
-      command: "readAttribute"
-      attribute: "MaxNetworks"
-      response:
-          constraints:
-              type: uint8
+    - label: "Sends ResetCounts command"
+      command: "ResetCounts"
 
-    - label: "Query Networks"
-      disabled: true
+    - label: "Read the Overruncount attribute"
       command: "readAttribute"
-      attribute: "Networks"
+      attribute: "OverrunCount"
       response:
-          constraints:
-              type: list
+          value: 0
