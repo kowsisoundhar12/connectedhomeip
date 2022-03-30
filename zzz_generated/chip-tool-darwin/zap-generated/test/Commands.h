@@ -19293,6 +19293,46 @@ public:
             ChipLogProgress(chipTool, " ***** Test Step 3 : Read the global attribute: AttributeList\n");
             err = TestReadTheGlobalAttributeAttributeList_3();
             break;
+        case 4:
+            ChipLogProgress(chipTool,
+                " ***** Test Step 4 : Read EventList attribute from the DUT and Verify that the DUT response provides a list of "
+                "supported events.\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadEventListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedEvents_4();
+            break;
+        case 5:
+            ChipLogProgress(chipTool,
+                " ***** Test Step 5 : Read AcceptedCommandList attribute from the DUT and Verify that the DUT response provides a "
+                "list of supported commands,This list SHALL include all the mandatory commands.\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadAcceptedCommandListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedCommandsThisListShallIncludeAllTheMandatoryCommands_5();
+            break;
+        case 6:
+            ChipLogProgress(chipTool,
+                " ***** Test Step 6 : Read GeneratedCommandList attribute from the DUT and Verify that the DUT response provides a "
+                "list of supported commands.\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadGeneratedCommandListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedCommands_6();
+            break;
+        case 7:
+            ChipLogProgress(chipTool,
+                " ***** Test Step 7 : Read FeatureMap attribute from the DUT and Verify that the DUT response indicates either "
+                "value 3 or throws a general error if the attribute is not supported\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadFeatureMapAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesEitherValue3OrThrowsAGeneralErrorIfTheAttributeIsNotSupported_7();
+            break;
         }
 
         if (CHIP_NO_ERROR != err) {
@@ -19308,7 +19348,7 @@ public:
 
 private:
     std::atomic_uint16_t mTestIndex;
-    const uint16_t mTestCount = 4;
+    const uint16_t mTestCount = 8;
 
     chip::Optional<chip::NodeId> mNodeId;
     chip::Optional<chip::CharSpan> mCluster;
@@ -19376,6 +19416,36 @@ private:
             NextTest();
         }];
 
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR TestReadEventListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedEvents_4()
+    {
+        UserPrompt(@"Please enter 'y' for success"
+                   @"y");
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR
+    TestReadAcceptedCommandListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedCommandsThisListShallIncludeAllTheMandatoryCommands_5()
+    {
+        UserPrompt(@"Please enter 'y' for success"
+                   @"y");
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR TestReadGeneratedCommandListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedCommands_6()
+    {
+        UserPrompt(@"Please enter 'y' for success"
+                   @"y");
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR
+    TestReadFeatureMapAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesEitherValue3OrThrowsAGeneralErrorIfTheAttributeIsNotSupported_7()
+    {
+        UserPrompt(@"Please enter 'y' for success"
+                   @"y");
         return CHIP_NO_ERROR;
     }
 };
@@ -22234,20 +22304,50 @@ public:
             err = TestReadTheGlobalAttributeAttributeList_5();
             break;
         case 6:
-            ChipLogProgress(chipTool, " ***** Test Step 6 : read the optional global attribute: FeatureMap\n");
-            err = TestReadTheOptionalGlobalAttributeFeatureMap_6();
+            ChipLogProgress(chipTool,
+                " ***** Test Step 6 : Read EventList attribute from the DUT and Verify that the DUT response provides a list of "
+                "supported events.\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadEventListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedEvents_6();
             break;
         case 7:
-            ChipLogProgress(chipTool, " ***** Test Step 7 : Read the optional global attribute : FeatureMap\n");
-            err = TestReadTheOptionalGlobalAttributeFeatureMap_7();
+            ChipLogProgress(chipTool,
+                " ***** Test Step 7 : Read AcceptedCommandList attribute from the DUT and Verify that the DUT response provides a "
+                "list of supported commands,This list SHALL include all the mandatory commands.\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadAcceptedCommandListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedCommandsThisListShallIncludeAllTheMandatoryCommands_7();
             break;
         case 8:
-            ChipLogProgress(chipTool, " ***** Test Step 8 : write the default values to optional global attribute: FeatureMap\n");
-            err = TestWriteTheDefaultValuesToOptionalGlobalAttributeFeatureMap_8();
+            ChipLogProgress(chipTool,
+                " ***** Test Step 8 : Read GeneratedCommandList attribute from the DUT and Verify that the DUT response provides a "
+                "list of supported commands.\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadGeneratedCommandListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedCommands_8();
             break;
         case 9:
-            ChipLogProgress(chipTool, " ***** Test Step 9 : reads back optional global attribute: FeatureMap\n");
-            err = TestReadsBackOptionalGlobalAttributeFeatureMap_9();
+            ChipLogProgress(chipTool, " ***** Test Step 9 : read the optional global attribute: FeatureMap\n");
+            err = TestReadTheOptionalGlobalAttributeFeatureMap_9();
+            break;
+        case 10:
+            ChipLogProgress(chipTool, " ***** Test Step 10 : Read the optional global attribute : FeatureMap\n");
+            err = TestReadTheOptionalGlobalAttributeFeatureMap_10();
+            break;
+        case 11:
+            ChipLogProgress(chipTool, " ***** Test Step 11 : write the default values to optional global attribute: FeatureMap\n");
+            err = TestWriteTheDefaultValuesToOptionalGlobalAttributeFeatureMap_11();
+            break;
+        case 12:
+            ChipLogProgress(chipTool, " ***** Test Step 12 : reads back optional global attribute: FeatureMap\n");
+            err = TestReadsBackOptionalGlobalAttributeFeatureMap_12();
             break;
         }
 
@@ -22264,7 +22364,7 @@ public:
 
 private:
     std::atomic_uint16_t mTestIndex;
-    const uint16_t mTestCount = 10;
+    const uint16_t mTestCount = 13;
 
     chip::Optional<chip::NodeId> mNodeId;
     chip::Optional<chip::CharSpan> mCluster;
@@ -22378,7 +22478,29 @@ private:
         return CHIP_NO_ERROR;
     }
 
-    CHIP_ERROR TestReadTheOptionalGlobalAttributeFeatureMap_6()
+    CHIP_ERROR TestReadEventListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedEvents_6()
+    {
+        UserPrompt(@"Please enter 'y' for success"
+                   @"y");
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR
+    TestReadAcceptedCommandListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedCommandsThisListShallIncludeAllTheMandatoryCommands_7()
+    {
+        UserPrompt(@"Please enter 'y' for success"
+                   @"y");
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR TestReadGeneratedCommandListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedCommands_8()
+    {
+        UserPrompt(@"Please enter 'y' for success"
+                   @"y");
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR TestReadTheOptionalGlobalAttributeFeatureMap_9()
     {
         CHIPDevice * device = GetConnectedDevice();
         CHIPTestOnOff * cluster = [[CHIPTestOnOff alloc] initWithDevice:device endpoint:1 queue:mCallbackQueue];
@@ -22400,7 +22522,7 @@ private:
         return CHIP_NO_ERROR;
     }
 
-    CHIP_ERROR TestReadTheOptionalGlobalAttributeFeatureMap_7()
+    CHIP_ERROR TestReadTheOptionalGlobalAttributeFeatureMap_10()
     {
         CHIPDevice * device = GetConnectedDevice();
         CHIPTestOnOff * cluster = [[CHIPTestOnOff alloc] initWithDevice:device endpoint:1 queue:mCallbackQueue];
@@ -22418,7 +22540,7 @@ private:
         return CHIP_NO_ERROR;
     }
 
-    CHIP_ERROR TestWriteTheDefaultValuesToOptionalGlobalAttributeFeatureMap_8()
+    CHIP_ERROR TestWriteTheDefaultValuesToOptionalGlobalAttributeFeatureMap_11()
     {
         CHIPDevice * device = GetConnectedDevice();
         CHIPTestOnOff * cluster = [[CHIPTestOnOff alloc] initWithDevice:device endpoint:1 queue:mCallbackQueue];
@@ -22437,7 +22559,7 @@ private:
         return CHIP_NO_ERROR;
     }
 
-    CHIP_ERROR TestReadsBackOptionalGlobalAttributeFeatureMap_9()
+    CHIP_ERROR TestReadsBackOptionalGlobalAttributeFeatureMap_12()
     {
         CHIPDevice * device = GetConnectedDevice();
         CHIPTestOnOff * cluster = [[CHIPTestOnOff alloc] initWithDevice:device endpoint:1 queue:mCallbackQueue];
@@ -26899,20 +27021,50 @@ public:
             err = TestWrite1ToTheOperationModeAttributeToDutOperationMode_1();
             break;
         case 2:
-            ChipLogProgress(chipTool, " ***** Test Step 2 : Write 2 to the OperationMode attribute to DUT: OperationMode\n");
-            if (ShouldSkip("A_OPERATIONMODE")) {
+            ChipLogProgress(chipTool,
+                " ***** Test Step 2 : Read EffectiveOperationMode attribute from the DUT and Verify that the DUT response "
+                "indicates EffectiveOperationMode attribute has the value 1\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
                 NextTest();
                 return;
             }
-            err = TestWrite2ToTheOperationModeAttributeToDutOperationMode_2();
+            err = TestReadEffectiveOperationModeAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesEffectiveOperationModeAttributeHasTheValue1_2();
             break;
         case 3:
-            ChipLogProgress(chipTool, " ***** Test Step 3 : Write 3 to the OperationMode attribute to DUT: OperationMode\n");
+            ChipLogProgress(chipTool, " ***** Test Step 3 : Write 2 to the OperationMode attribute to DUT: OperationMode\n");
             if (ShouldSkip("A_OPERATIONMODE")) {
                 NextTest();
                 return;
             }
-            err = TestWrite3ToTheOperationModeAttributeToDutOperationMode_3();
+            err = TestWrite2ToTheOperationModeAttributeToDutOperationMode_3();
+            break;
+        case 4:
+            ChipLogProgress(chipTool,
+                " ***** Test Step 4 : Read EffectiveOperationMode attribute from the DUT and Verify that the DUT response "
+                "indicates EffectiveOperationMode attribute has the value 2\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadEffectiveOperationModeAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesEffectiveOperationModeAttributeHasTheValue2_4();
+            break;
+        case 5:
+            ChipLogProgress(chipTool, " ***** Test Step 5 : Write 3 to the OperationMode attribute to DUT: OperationMode\n");
+            if (ShouldSkip("A_OPERATIONMODE")) {
+                NextTest();
+                return;
+            }
+            err = TestWrite3ToTheOperationModeAttributeToDutOperationMode_5();
+            break;
+        case 6:
+            ChipLogProgress(chipTool,
+                " ***** Test Step 6 : Read EffectiveOperationMode attribute from the DUT and Verify that the DUT response "
+                "indicates EffectiveOperationMode attribute has the value 3\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadEffectiveOperationModeAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesEffectiveOperationModeAttributeHasTheValue3_6();
             break;
         }
 
@@ -26929,7 +27081,7 @@ public:
 
 private:
     std::atomic_uint16_t mTestIndex;
-    const uint16_t mTestCount = 4;
+    const uint16_t mTestCount = 7;
 
     chip::Optional<chip::NodeId> mNodeId;
     chip::Optional<chip::CharSpan> mCluster;
@@ -26964,7 +27116,15 @@ private:
         return CHIP_NO_ERROR;
     }
 
-    CHIP_ERROR TestWrite2ToTheOperationModeAttributeToDutOperationMode_2()
+    CHIP_ERROR
+    TestReadEffectiveOperationModeAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesEffectiveOperationModeAttributeHasTheValue1_2()
+    {
+        UserPrompt(@"Please enter EffectiveOperationMode attribute value"
+                   @"1");
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR TestWrite2ToTheOperationModeAttributeToDutOperationMode_3()
     {
         CHIPDevice * device = GetConnectedDevice();
         CHIPTestPumpConfigurationAndControl * cluster = [[CHIPTestPumpConfigurationAndControl alloc] initWithDevice:device
@@ -26986,7 +27146,15 @@ private:
         return CHIP_NO_ERROR;
     }
 
-    CHIP_ERROR TestWrite3ToTheOperationModeAttributeToDutOperationMode_3()
+    CHIP_ERROR
+    TestReadEffectiveOperationModeAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesEffectiveOperationModeAttributeHasTheValue2_4()
+    {
+        UserPrompt(@"Please enter EffectiveOperationMode attribute value"
+                   @"2");
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR TestWrite3ToTheOperationModeAttributeToDutOperationMode_5()
     {
         CHIPDevice * device = GetConnectedDevice();
         CHIPTestPumpConfigurationAndControl * cluster = [[CHIPTestPumpConfigurationAndControl alloc] initWithDevice:device
@@ -27005,6 +27173,14 @@ private:
                                         NextTest();
                                     }];
 
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR
+    TestReadEffectiveOperationModeAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesEffectiveOperationModeAttributeHasTheValue3_6()
+    {
+        UserPrompt(@"Please enter EffectiveOperationMode attribute value"
+                   @"3");
         return CHIP_NO_ERROR;
     }
 };
@@ -27090,36 +27266,86 @@ public:
             err = TestWrite1ToTheControlModeAttributeToDut_5();
             break;
         case 6:
-            ChipLogProgress(chipTool, " ***** Test Step 6 : Write 2 to the ControlMode attribute to DUT\n");
-            if (ShouldSkip("A_CONTROLMODE")) {
+            ChipLogProgress(chipTool,
+                " ***** Test Step 6 : Read EffectiveControlMode attribute from the DUT and Verify that the DUT response indicates "
+                "EffectiveControlMode attribute has the value 1\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
                 NextTest();
                 return;
             }
-            err = TestWrite2ToTheControlModeAttributeToDut_6();
+            err = TestReadEffectiveControlModeAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesEffectiveControlModeAttributeHasTheValue1_6();
             break;
         case 7:
-            ChipLogProgress(chipTool, " ***** Test Step 7 : Write 3 to the ControlMode attribute to DUT\n");
+            ChipLogProgress(chipTool, " ***** Test Step 7 : Write 2 to the ControlMode attribute to DUT\n");
             if (ShouldSkip("A_CONTROLMODE")) {
                 NextTest();
                 return;
             }
-            err = TestWrite3ToTheControlModeAttributeToDut_7();
+            err = TestWrite2ToTheControlModeAttributeToDut_7();
             break;
         case 8:
-            ChipLogProgress(chipTool, " ***** Test Step 8 : Write 5 to the ControlMode attribute to DUT\n");
-            if (ShouldSkip("A_CONTROLMODE")) {
+            ChipLogProgress(chipTool,
+                " ***** Test Step 8 : Read EffectiveControlMode attribute from the DUT and Verify that the DUT response indicates "
+                "EffectiveControlMode attribute has the value 2\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
                 NextTest();
                 return;
             }
-            err = TestWrite5ToTheControlModeAttributeToDut_8();
+            err = TestReadEffectiveControlModeAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesEffectiveControlModeAttributeHasTheValue2_8();
             break;
         case 9:
-            ChipLogProgress(chipTool, " ***** Test Step 9 : Write 7 to the ControlMode attribute to DUT\n");
+            ChipLogProgress(chipTool, " ***** Test Step 9 : Write 3 to the ControlMode attribute to DUT\n");
             if (ShouldSkip("A_CONTROLMODE")) {
                 NextTest();
                 return;
             }
-            err = TestWrite7ToTheControlModeAttributeToDut_9();
+            err = TestWrite3ToTheControlModeAttributeToDut_9();
+            break;
+        case 10:
+            ChipLogProgress(chipTool,
+                " ***** Test Step 10 : Read EffectiveControlMode attribute from the DUT and Verify that the DUT response indicates "
+                "EffectiveControlMode attribute has the value 3\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadEffectiveControlModeAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesEffectiveControlModeAttributeHasTheValue3_10();
+            break;
+        case 11:
+            ChipLogProgress(chipTool, " ***** Test Step 11 : Write 5 to the ControlMode attribute to DUT\n");
+            if (ShouldSkip("A_CONTROLMODE")) {
+                NextTest();
+                return;
+            }
+            err = TestWrite5ToTheControlModeAttributeToDut_11();
+            break;
+        case 12:
+            ChipLogProgress(chipTool,
+                " ***** Test Step 12 : Read EffectiveControlMode attribute from the DUT and Verify that the DUT response indicates "
+                "EffectiveControlMode attribute has the value 5\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadEffectiveControlModeAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesEffectiveControlModeAttributeHasTheValue5_12();
+            break;
+        case 13:
+            ChipLogProgress(chipTool, " ***** Test Step 13 : Write 7 to the ControlMode attribute to DUT\n");
+            if (ShouldSkip("A_CONTROLMODE")) {
+                NextTest();
+                return;
+            }
+            err = TestWrite7ToTheControlModeAttributeToDut_13();
+            break;
+        case 14:
+            ChipLogProgress(chipTool,
+                " ***** Test Step 14 : Read EffectiveControlMode attribute from the DUT and Verify that the DUT response indicates "
+                "EffectiveControlMode attribute has the value 7\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadEffectiveControlModeAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesEffectiveControlModeAttributeHasTheValue7_14();
             break;
         }
 
@@ -27136,7 +27362,7 @@ public:
 
 private:
     std::atomic_uint16_t mTestIndex;
-    const uint16_t mTestCount = 10;
+    const uint16_t mTestCount = 15;
 
     chip::Optional<chip::NodeId> mNodeId;
     chip::Optional<chip::CharSpan> mCluster;
@@ -27263,7 +27489,15 @@ private:
         return CHIP_NO_ERROR;
     }
 
-    CHIP_ERROR TestWrite2ToTheControlModeAttributeToDut_6()
+    CHIP_ERROR
+    TestReadEffectiveControlModeAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesEffectiveControlModeAttributeHasTheValue1_6()
+    {
+        UserPrompt(@"Please enter EffectiveControlMode attribute value"
+                   @"1");
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR TestWrite2ToTheControlModeAttributeToDut_7()
     {
         CHIPDevice * device = GetConnectedDevice();
         CHIPTestPumpConfigurationAndControl * cluster = [[CHIPTestPumpConfigurationAndControl alloc] initWithDevice:device
@@ -27285,7 +27519,15 @@ private:
         return CHIP_NO_ERROR;
     }
 
-    CHIP_ERROR TestWrite3ToTheControlModeAttributeToDut_7()
+    CHIP_ERROR
+    TestReadEffectiveControlModeAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesEffectiveControlModeAttributeHasTheValue2_8()
+    {
+        UserPrompt(@"Please enter EffectiveControlMode attribute value"
+                   @"2");
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR TestWrite3ToTheControlModeAttributeToDut_9()
     {
         CHIPDevice * device = GetConnectedDevice();
         CHIPTestPumpConfigurationAndControl * cluster = [[CHIPTestPumpConfigurationAndControl alloc] initWithDevice:device
@@ -27307,7 +27549,15 @@ private:
         return CHIP_NO_ERROR;
     }
 
-    CHIP_ERROR TestWrite5ToTheControlModeAttributeToDut_8()
+    CHIP_ERROR
+    TestReadEffectiveControlModeAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesEffectiveControlModeAttributeHasTheValue3_10()
+    {
+        UserPrompt(@"Please enter EffectiveControlMode attribute value"
+                   @"3");
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR TestWrite5ToTheControlModeAttributeToDut_11()
     {
         CHIPDevice * device = GetConnectedDevice();
         CHIPTestPumpConfigurationAndControl * cluster = [[CHIPTestPumpConfigurationAndControl alloc] initWithDevice:device
@@ -27329,7 +27579,15 @@ private:
         return CHIP_NO_ERROR;
     }
 
-    CHIP_ERROR TestWrite7ToTheControlModeAttributeToDut_9()
+    CHIP_ERROR
+    TestReadEffectiveControlModeAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesEffectiveControlModeAttributeHasTheValue5_12()
+    {
+        UserPrompt(@"Please enter EffectiveControlMode attribute value"
+                   @"5");
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR TestWrite7ToTheControlModeAttributeToDut_13()
     {
         CHIPDevice * device = GetConnectedDevice();
         CHIPTestPumpConfigurationAndControl * cluster = [[CHIPTestPumpConfigurationAndControl alloc] initWithDevice:device
@@ -27348,6 +27606,14 @@ private:
                                       NextTest();
                                   }];
 
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR
+    TestReadEffectiveControlModeAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesEffectiveControlModeAttributeHasTheValue7_14()
+    {
+        UserPrompt(@"Please enter EffectiveControlMode attribute value"
+                   @"7");
         return CHIP_NO_ERROR;
     }
 };
@@ -27393,20 +27659,36 @@ public:
             err = TestWaitForTheCommissionedDeviceToBeRetrieved_0();
             break;
         case 1:
-            ChipLogProgress(chipTool, " ***** Test Step 1 : Read the global attribute constraints: ClusterRevision\n");
-            err = TestReadTheGlobalAttributeConstraintsClusterRevision_1();
+            ChipLogProgress(chipTool,
+                " ***** Test Step 1 : Read ClusterRevision attribute from the DUT and Verify that the DUT response indicates "
+                "ClusterRevision attribute has the value 3\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadClusterRevisionAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesClusterRevisionAttributeHasTheValue3_1();
             break;
         case 2:
             ChipLogProgress(chipTool, " ***** Test Step 2 : Read the global attribute: AttributeList\n");
             err = TestReadTheGlobalAttributeAttributeList_2();
             break;
         case 3:
-            ChipLogProgress(chipTool, " ***** Test Step 3 : Read the global attribute: AcceptedCommandList\n");
-            err = TestReadTheGlobalAttributeAcceptedCommandList_3();
+            ChipLogProgress(chipTool,
+                " ***** Test Step 3 : Read EventList attribute from the DUT and Verify that the DUT response provides a list of "
+                "supported events.\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadEventListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedEvents_3();
             break;
         case 4:
-            ChipLogProgress(chipTool, " ***** Test Step 4 : Read the global attribute: GeneratedCommandList\n");
-            err = TestReadTheGlobalAttributeGeneratedCommandList_4();
+            ChipLogProgress(chipTool, " ***** Test Step 4 : Read the global attribute: AcceptedCommandList\n");
+            err = TestReadTheGlobalAttributeAcceptedCommandList_4();
+            break;
+        case 5:
+            ChipLogProgress(chipTool, " ***** Test Step 5 : Read the global attribute: GeneratedCommandList\n");
+            err = TestReadTheGlobalAttributeGeneratedCommandList_5();
             break;
         }
 
@@ -27423,7 +27705,7 @@ public:
 
 private:
     std::atomic_uint16_t mTestIndex;
-    const uint16_t mTestCount = 5;
+    const uint16_t mTestCount = 6;
 
     chip::Optional<chip::NodeId> mNodeId;
     chip::Optional<chip::CharSpan> mCluster;
@@ -27436,23 +27718,11 @@ private:
         return CHIP_NO_ERROR;
     }
 
-    CHIP_ERROR TestReadTheGlobalAttributeConstraintsClusterRevision_1()
+    CHIP_ERROR
+    TestReadClusterRevisionAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesClusterRevisionAttributeHasTheValue3_1()
     {
-        CHIPDevice * device = GetConnectedDevice();
-        CHIPTestRelativeHumidityMeasurement * cluster = [[CHIPTestRelativeHumidityMeasurement alloc] initWithDevice:device
-                                                                                                           endpoint:1
-                                                                                                              queue:mCallbackQueue];
-        VerifyOrReturnError(cluster != nil, CHIP_ERROR_INCORRECT_STATE);
-
-        [cluster readAttributeClusterRevisionWithCompletionHandler:^(NSNumber * _Nullable value, NSError * _Nullable err) {
-            NSLog(@"Read the global attribute constraints: ClusterRevision Error: %@", err);
-
-            VerifyOrReturn(CheckValue("status", err, 0));
-
-            VerifyOrReturn(CheckConstraintType("clusterRevision", "", "uint16"));
-            NextTest();
-        }];
-
+        UserPrompt(@"LifetimeEnergyConsumed"
+                   @"3");
         return CHIP_NO_ERROR;
     }
 
@@ -27476,7 +27746,14 @@ private:
         return CHIP_NO_ERROR;
     }
 
-    CHIP_ERROR TestReadTheGlobalAttributeAcceptedCommandList_3()
+    CHIP_ERROR TestReadEventListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedEvents_3()
+    {
+        UserPrompt(@"Please enter 'y' for success"
+                   @"y");
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR TestReadTheGlobalAttributeAcceptedCommandList_4()
     {
         CHIPDevice * device = GetConnectedDevice();
         CHIPTestRelativeHumidityMeasurement * cluster = [[CHIPTestRelativeHumidityMeasurement alloc] initWithDevice:device
@@ -27496,7 +27773,7 @@ private:
         return CHIP_NO_ERROR;
     }
 
-    CHIP_ERROR TestReadTheGlobalAttributeGeneratedCommandList_4()
+    CHIP_ERROR TestReadTheGlobalAttributeGeneratedCommandList_5()
     {
         CHIPDevice * device = GetConnectedDevice();
         CHIPTestRelativeHumidityMeasurement * cluster = [[CHIPTestRelativeHumidityMeasurement alloc] initWithDevice:device
@@ -27566,8 +27843,18 @@ public:
             err = TestReadsConstraintsOfAttributeMinMeasuredValue_2();
             break;
         case 3:
-            ChipLogProgress(chipTool, " ***** Test Step 3 : Reads constraints of attribute: Tolerance\n");
-            err = TestReadsConstraintsOfAttributeTolerance_3();
+            ChipLogProgress(chipTool,
+                " ***** Test Step 3 : Read MaxMeasuredValue attribute from the DUT and Verify that the DUT response with an int16 "
+                "value,response value should be in the range of 1 to 10000\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadMaxMeasuredValueAttributeFromTheDutAndVerifyThatTheDutResponseWithAnInt16ValueresponseValueShouldBeInTheRangeOf1To10000_3();
+            break;
+        case 4:
+            ChipLogProgress(chipTool, " ***** Test Step 4 : Reads constraints of attribute: Tolerance\n");
+            err = TestReadsConstraintsOfAttributeTolerance_4();
             break;
         }
 
@@ -27584,7 +27871,7 @@ public:
 
 private:
     std::atomic_uint16_t mTestIndex;
-    const uint16_t mTestCount = 4;
+    const uint16_t mTestCount = 5;
 
     chip::Optional<chip::NodeId> mNodeId;
     chip::Optional<chip::CharSpan> mCluster;
@@ -27651,7 +27938,15 @@ private:
         return CHIP_NO_ERROR;
     }
 
-    CHIP_ERROR TestReadsConstraintsOfAttributeTolerance_3()
+    CHIP_ERROR
+    TestReadMaxMeasuredValueAttributeFromTheDutAndVerifyThatTheDutResponseWithAnInt16ValueresponseValueShouldBeInTheRangeOf1To10000_3()
+    {
+        UserPrompt(@"Please enter 'y' for success"
+                   @"y");
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR TestReadsConstraintsOfAttributeTolerance_4()
     {
         CHIPDevice * device = GetConnectedDevice();
         CHIPTestRelativeHumidityMeasurement * cluster = [[CHIPTestRelativeHumidityMeasurement alloc] initWithDevice:device
@@ -28584,12 +28879,48 @@ public:
             err = TestWaitForTheCommissionedDeviceToBeRetrieved_0();
             break;
         case 1:
-            ChipLogProgress(chipTool, " ***** Test Step 1 : Read the global attribute constraints: ClusterRevision\n");
-            err = TestReadTheGlobalAttributeConstraintsClusterRevision_1();
+            ChipLogProgress(chipTool,
+                " ***** Test Step 1 : Read ClusterRevision attribute from the DUT and Verify that the DUT response indicates "
+                "ClusterRevision attribute has the value 4\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadClusterRevisionAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesClusterRevisionAttributeHasTheValue4_1();
             break;
         case 2:
             ChipLogProgress(chipTool, " ***** Test Step 2 : Read the global attribute: AttributeList\n");
             err = TestReadTheGlobalAttributeAttributeList_2();
+            break;
+        case 3:
+            ChipLogProgress(chipTool,
+                " ***** Test Step 3 : Read EventList attribute from the DUT and Verify that the DUT response provides a list of "
+                "supported events.\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadEventListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedEvents_3();
+            break;
+        case 4:
+            ChipLogProgress(chipTool,
+                " ***** Test Step 4 : Read AcceptedCommandList attribute from the DUT and Verify that the DUT response provides a "
+                "list of supported commands,This list SHALL include all the mandatory commands.\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadAcceptedCommandListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedCommandsThisListShallIncludeAllTheMandatoryCommands_4();
+            break;
+        case 5:
+            ChipLogProgress(chipTool,
+                " ***** Test Step 5 : Read GeneratedCommandList attribute from the DUT and Verify that the DUT response provides a "
+                "list of supported commands.\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadGeneratedCommandListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedCommands_5();
             break;
         }
 
@@ -28606,7 +28937,7 @@ public:
 
 private:
     std::atomic_uint16_t mTestIndex;
-    const uint16_t mTestCount = 3;
+    const uint16_t mTestCount = 6;
 
     chip::Optional<chip::NodeId> mNodeId;
     chip::Optional<chip::CharSpan> mCluster;
@@ -28619,23 +28950,11 @@ private:
         return CHIP_NO_ERROR;
     }
 
-    CHIP_ERROR TestReadTheGlobalAttributeConstraintsClusterRevision_1()
+    CHIP_ERROR
+    TestReadClusterRevisionAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesClusterRevisionAttributeHasTheValue4_1()
     {
-        CHIPDevice * device = GetConnectedDevice();
-        CHIPTestTemperatureMeasurement * cluster = [[CHIPTestTemperatureMeasurement alloc] initWithDevice:device
-                                                                                                 endpoint:1
-                                                                                                    queue:mCallbackQueue];
-        VerifyOrReturnError(cluster != nil, CHIP_ERROR_INCORRECT_STATE);
-
-        [cluster readAttributeClusterRevisionWithCompletionHandler:^(NSNumber * _Nullable value, NSError * _Nullable err) {
-            NSLog(@"Read the global attribute constraints: ClusterRevision Error: %@", err);
-
-            VerifyOrReturn(CheckValue("status", err, 0));
-
-            VerifyOrReturn(CheckConstraintType("clusterRevision", "", "uint16"));
-            NextTest();
-        }];
-
+        UserPrompt(@"Please enter ClusterRevision attribute value"
+                   @"4");
         return CHIP_NO_ERROR;
     }
 
@@ -28656,6 +28975,28 @@ private:
             NextTest();
         }];
 
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR TestReadEventListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedEvents_3()
+    {
+        UserPrompt(@"Please enter 'y' for success"
+                   @"y");
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR
+    TestReadAcceptedCommandListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedCommandsThisListShallIncludeAllTheMandatoryCommands_4()
+    {
+        UserPrompt(@"Please enter 'y' for success"
+                   @"y");
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR TestReadGeneratedCommandListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedCommands_5()
+    {
+        UserPrompt(@"Please enter 'y' for success"
+                   @"y");
         return CHIP_NO_ERROR;
     }
 };
@@ -31565,20 +31906,36 @@ public:
             err = TestWaitForTheCommissionedDeviceToBeRetrieved_0();
             break;
         case 1:
-            ChipLogProgress(chipTool, " ***** Test Step 1 : Read the global attribute constraints: ClusterRevision\n");
-            err = TestReadTheGlobalAttributeConstraintsClusterRevision_1();
+            ChipLogProgress(chipTool,
+                " ***** Test Step 1 : Read ClusterRevision attribute from the DUT and Verify that the DUT response indicates "
+                "ClusterRevision attribute has the value 2\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadClusterRevisionAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesClusterRevisionAttributeHasTheValue2_1();
             break;
         case 2:
             ChipLogProgress(chipTool, " ***** Test Step 2 : Read the global attribute: AttributeList\n");
             err = TestReadTheGlobalAttributeAttributeList_2();
             break;
         case 3:
-            ChipLogProgress(chipTool, " ***** Test Step 3 : Read the global attribute: AcceptedCommandList\n");
-            err = TestReadTheGlobalAttributeAcceptedCommandList_3();
+            ChipLogProgress(chipTool,
+                " ***** Test Step 3 : Read EventList attribute from the DUT and Verify that the DUT response provides a list of "
+                "supported events.\n");
+            if (ShouldSkip("PICS_USER_PROMPT")) {
+                NextTest();
+                return;
+            }
+            err = TestReadEventListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedEvents_3();
             break;
         case 4:
-            ChipLogProgress(chipTool, " ***** Test Step 4 : Read the global attribute: GeneratedCommandList\n");
-            err = TestReadTheGlobalAttributeGeneratedCommandList_4();
+            ChipLogProgress(chipTool, " ***** Test Step 4 : Read the global attribute: AcceptedCommandList\n");
+            err = TestReadTheGlobalAttributeAcceptedCommandList_4();
+            break;
+        case 5:
+            ChipLogProgress(chipTool, " ***** Test Step 5 : Read the global attribute: GeneratedCommandList\n");
+            err = TestReadTheGlobalAttributeGeneratedCommandList_5();
             break;
         }
 
@@ -31595,7 +31952,7 @@ public:
 
 private:
     std::atomic_uint16_t mTestIndex;
-    const uint16_t mTestCount = 5;
+    const uint16_t mTestCount = 6;
 
     chip::Optional<chip::NodeId> mNodeId;
     chip::Optional<chip::CharSpan> mCluster;
@@ -31608,22 +31965,11 @@ private:
         return CHIP_NO_ERROR;
     }
 
-    CHIP_ERROR TestReadTheGlobalAttributeConstraintsClusterRevision_1()
+    CHIP_ERROR
+    TestReadClusterRevisionAttributeFromTheDutAndVerifyThatTheDutResponseIndicatesClusterRevisionAttributeHasTheValue2_1()
     {
-        CHIPDevice * device = GetConnectedDevice();
-        CHIPTestThermostatUserInterfaceConfiguration * cluster =
-            [[CHIPTestThermostatUserInterfaceConfiguration alloc] initWithDevice:device endpoint:1 queue:mCallbackQueue];
-        VerifyOrReturnError(cluster != nil, CHIP_ERROR_INCORRECT_STATE);
-
-        [cluster readAttributeClusterRevisionWithCompletionHandler:^(NSNumber * _Nullable value, NSError * _Nullable err) {
-            NSLog(@"Read the global attribute constraints: ClusterRevision Error: %@", err);
-
-            VerifyOrReturn(CheckValue("status", err, 0));
-
-            VerifyOrReturn(CheckConstraintType("clusterRevision", "", "uint16"));
-            NextTest();
-        }];
-
+        UserPrompt(@"Please enter ClusterRevision attribute value"
+                   @"2");
         return CHIP_NO_ERROR;
     }
 
@@ -31646,7 +31992,14 @@ private:
         return CHIP_NO_ERROR;
     }
 
-    CHIP_ERROR TestReadTheGlobalAttributeAcceptedCommandList_3()
+    CHIP_ERROR TestReadEventListAttributeFromTheDutAndVerifyThatTheDutResponseProvidesAListOfSupportedEvents_3()
+    {
+        UserPrompt(@"Please enter 'y' for success"
+                   @"y");
+        return CHIP_NO_ERROR;
+    }
+
+    CHIP_ERROR TestReadTheGlobalAttributeAcceptedCommandList_4()
     {
         CHIPDevice * device = GetConnectedDevice();
         CHIPTestThermostatUserInterfaceConfiguration * cluster =
@@ -31665,7 +32018,7 @@ private:
         return CHIP_NO_ERROR;
     }
 
-    CHIP_ERROR TestReadTheGlobalAttributeGeneratedCommandList_4()
+    CHIP_ERROR TestReadTheGlobalAttributeGeneratedCommandList_5()
     {
         CHIPDevice * device = GetConnectedDevice();
         CHIPTestThermostatUserInterfaceConfiguration * cluster =

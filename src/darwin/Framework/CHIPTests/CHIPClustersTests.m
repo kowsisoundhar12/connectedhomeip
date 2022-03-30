@@ -15197,6 +15197,46 @@ NSNumber * _Nonnull CurrentLevelValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
+- (void)testSendClusterTest_TC_MC_1_1_000004_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:
+                  @"Read EventList attribute from the DUT and Verify that the DUT response provides a list of supported events."];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter 'y' for success", @"y");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_MC_1_1_000005_UserPrompt
+{
+    XCTestExpectation * expectation = [self
+        expectationWithDescription:@"Read AcceptedCommandList attribute from the DUT and Verify that the DUT response provides a "
+                                   @"list of supported commands,This list SHALL include all the mandatory commands."];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter 'y' for success", @"y");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_MC_1_1_000006_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read GeneratedCommandList attribute from the DUT and Verify that the DUT response "
+                                         @"provides a list of supported commands."];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter 'y' for success", @"y");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_MC_1_1_000007_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read FeatureMap attribute from the DUT and Verify that the DUT response indicates "
+                                         @"either value 3 or throws a general error if the attribute is not supported"];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter 'y' for success", @"y");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
 
 - (void)testSendClusterTest_TC_MC_1_2_000000_WaitForCommissionee
 {
@@ -15266,6 +15306,46 @@ NSNumber * _Nonnull CurrentLevelValue;
         [expectation fulfill];
     }];
 
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_MC_1_2_000004_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:
+                  @"Read EventList attribute from the DUT and Verify that the DUT response provides a list of supported events."];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter 'y' for success", @"y");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_MC_1_2_000005_UserPrompt
+{
+    XCTestExpectation * expectation = [self
+        expectationWithDescription:@"Read AcceptedCommandList attribute from the DUT and Verify that the DUT response provides a "
+                                   @"list of supported commands,This list SHALL include all the mandatory commands."];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter 'y' for success", @"y");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_MC_1_2_000006_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read GeneratedCommandList attribute from the DUT and Verify that the DUT response "
+                                         @"provides a list of supported commands."];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter 'y' for success", @"y");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_MC_1_2_000007_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read FeatureMap attribute from the DUT and Verify that the DUT response indicates "
+                                         @"either value 3 or throws a general error if the attribute is not supported"];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter 'y' for success", @"y");
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
 
@@ -17197,7 +17277,37 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_OO_1_1_000006_ReadAttribute
+- (void)testSendClusterTest_TC_OO_1_1_000006_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:
+                  @"Read EventList attribute from the DUT and Verify that the DUT response provides a list of supported events."];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter 'y' for success", @"y");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_OO_1_1_000007_UserPrompt
+{
+    XCTestExpectation * expectation = [self
+        expectationWithDescription:@"Read AcceptedCommandList attribute from the DUT and Verify that the DUT response provides a "
+                                   @"list of supported commands,This list SHALL include all the mandatory commands."];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter 'y' for success", @"y");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_OO_1_1_000008_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read GeneratedCommandList attribute from the DUT and Verify that the DUT response "
+                                         @"provides a list of supported commands."];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter 'y' for success", @"y");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_OO_1_1_000009_ReadAttribute
 {
     XCTestExpectation * expectation = [self expectationWithDescription:@"read the optional global attribute: FeatureMap"];
 
@@ -17221,7 +17331,7 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_OO_1_1_000007_ReadAttribute
+- (void)testSendClusterTest_TC_OO_1_1_000010_ReadAttribute
 {
     XCTestExpectation * expectation = [self expectationWithDescription:@"Read the optional global attribute : FeatureMap"];
 
@@ -17240,7 +17350,7 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_OO_1_1_000008_WriteAttribute
+- (void)testSendClusterTest_TC_OO_1_1_000011_WriteAttribute
 {
     XCTestExpectation * expectation =
         [self expectationWithDescription:@"write the default values to optional global attribute: FeatureMap"];
@@ -17262,7 +17372,7 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_OO_1_1_000009_ReadAttribute
+- (void)testSendClusterTest_TC_OO_1_1_000012_ReadAttribute
 {
     XCTestExpectation * expectation = [self expectationWithDescription:@"reads back optional global attribute: FeatureMap"];
 
@@ -20947,7 +21057,17 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_PCC_2_2_000002_WriteAttribute
+- (void)testSendClusterTest_TC_PCC_2_2_000002_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read EffectiveOperationMode attribute from the DUT and Verify that the DUT response "
+                                         @"indicates EffectiveOperationMode attribute has the value 1"];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter EffectiveOperationMode attribute value", @"1");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_PCC_2_2_000003_WriteAttribute
 {
     XCTestExpectation * expectation =
         [self expectationWithDescription:@"Write 2 to the OperationMode attribute to DUT: OperationMode"];
@@ -20972,7 +21092,17 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_PCC_2_2_000003_WriteAttribute
+- (void)testSendClusterTest_TC_PCC_2_2_000004_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read EffectiveOperationMode attribute from the DUT and Verify that the DUT response "
+                                         @"indicates EffectiveOperationMode attribute has the value 2"];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter EffectiveOperationMode attribute value", @"2");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_PCC_2_2_000005_WriteAttribute
 {
     XCTestExpectation * expectation =
         [self expectationWithDescription:@"Write 3 to the OperationMode attribute to DUT: OperationMode"];
@@ -20995,6 +21125,16 @@ NSNumber * _Nonnull OccupancyValue;
                                     [expectation fulfill];
                                 }];
 
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_PCC_2_2_000006_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read EffectiveOperationMode attribute from the DUT and Verify that the DUT response "
+                                         @"indicates EffectiveOperationMode attribute has the value 3"];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter EffectiveOperationMode attribute value", @"3");
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
 
@@ -21130,7 +21270,17 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_PCC_2_3_000006_WriteAttribute
+- (void)testSendClusterTest_TC_PCC_2_3_000006_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read EffectiveControlMode attribute from the DUT and Verify that the DUT response "
+                                         @"indicates EffectiveControlMode attribute has the value 1"];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter EffectiveControlMode attribute value", @"1");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_PCC_2_3_000007_WriteAttribute
 {
     XCTestExpectation * expectation = [self expectationWithDescription:@"Write 2 to the ControlMode attribute to DUT"];
 
@@ -21154,7 +21304,17 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_PCC_2_3_000007_WriteAttribute
+- (void)testSendClusterTest_TC_PCC_2_3_000008_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read EffectiveControlMode attribute from the DUT and Verify that the DUT response "
+                                         @"indicates EffectiveControlMode attribute has the value 2"];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter EffectiveControlMode attribute value", @"2");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_PCC_2_3_000009_WriteAttribute
 {
     XCTestExpectation * expectation = [self expectationWithDescription:@"Write 3 to the ControlMode attribute to DUT"];
 
@@ -21178,7 +21338,17 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_PCC_2_3_000008_WriteAttribute
+- (void)testSendClusterTest_TC_PCC_2_3_000010_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read EffectiveControlMode attribute from the DUT and Verify that the DUT response "
+                                         @"indicates EffectiveControlMode attribute has the value 3"];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter EffectiveControlMode attribute value", @"3");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_PCC_2_3_000011_WriteAttribute
 {
     XCTestExpectation * expectation = [self expectationWithDescription:@"Write 5 to the ControlMode attribute to DUT"];
 
@@ -21202,7 +21372,17 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_PCC_2_3_000009_WriteAttribute
+- (void)testSendClusterTest_TC_PCC_2_3_000012_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read EffectiveControlMode attribute from the DUT and Verify that the DUT response "
+                                         @"indicates EffectiveControlMode attribute has the value 5"];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter EffectiveControlMode attribute value", @"5");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_PCC_2_3_000013_WriteAttribute
 {
     XCTestExpectation * expectation = [self expectationWithDescription:@"Write 7 to the ControlMode attribute to DUT"];
 
@@ -21224,6 +21404,16 @@ NSNumber * _Nonnull OccupancyValue;
                                   [expectation fulfill];
                               }];
 
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_PCC_2_3_000014_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read EffectiveControlMode attribute from the DUT and Verify that the DUT response "
+                                         @"indicates EffectiveControlMode attribute has the value 7"];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter EffectiveControlMode attribute value", @"7");
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
 
@@ -21412,7 +21602,17 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_PCC_2_4_000008_WriteAttribute
+- (void)testSendClusterTest_TC_PCC_2_4_000008_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read LifetimeEnergyConsumed attribute from the DUT and Verify that the DUT response "
+                                         @"indicates LifetimeEnergyConsumed attribute has the value 1"];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter LifetimeEnergyConsumed attribute value", @"1");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_PCC_2_4_000009_WriteAttribute
 {
     XCTestExpectation * expectation = [self expectationWithDescription:@"Write 2 to the LifetimeEnergyConsumed attribute to DUT"];
 
@@ -21436,7 +21636,7 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_PCC_2_4_000009_ReadAttribute
+- (void)testSendClusterTest_TC_PCC_2_4_000010_ReadAttribute
 {
     XCTestExpectation * expectation = [self expectationWithDescription:@"Reads the attribute: LifetimeEnergyConsumed"];
 
@@ -21463,7 +21663,7 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_PCC_2_4_000010_WriteAttribute
+- (void)testSendClusterTest_TC_PCC_2_4_000011_WriteAttribute
 {
     XCTestExpectation * expectation = [self expectationWithDescription:@"Write 3 to the LifetimeEnergyConsumed attribute to DUT"];
 
@@ -21487,7 +21687,7 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_PCC_2_4_000011_ReadAttribute
+- (void)testSendClusterTest_TC_PCC_2_4_000012_ReadAttribute
 {
     XCTestExpectation * expectation = [self expectationWithDescription:@"Reads the attribute: LifetimeEnergyConsumed"];
 
@@ -21523,25 +21723,14 @@ NSNumber * _Nonnull OccupancyValue;
     WaitForCommissionee(expectation, queue, 305414945);
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_RH_1_1_000001_ReadAttribute
+- (void)testSendClusterTest_TC_RH_1_1_000001_UserPrompt
 {
-    XCTestExpectation * expectation = [self expectationWithDescription:@"Read the global attribute constraints: ClusterRevision"];
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read ClusterRevision attribute from the DUT and Verify that the DUT response indicates "
+                                         @"ClusterRevision attribute has the value 3"];
 
-    CHIPDevice * device = GetConnectedDevice();
     dispatch_queue_t queue = dispatch_get_main_queue();
-    CHIPTestRelativeHumidityMeasurement * cluster = [[CHIPTestRelativeHumidityMeasurement alloc] initWithDevice:device
-                                                                                                       endpoint:1
-                                                                                                          queue:queue];
-    XCTAssertNotNil(cluster);
-
-    [cluster readAttributeClusterRevisionWithCompletionHandler:^(NSNumber * _Nullable value, NSError * _Nullable err) {
-        NSLog(@"Read the global attribute constraints: ClusterRevision Error: %@", err);
-
-        XCTAssertEqual([CHIPErrorTestUtils errorToZCLErrorCode:err], 0);
-
-        [expectation fulfill];
-    }];
-
+    UserPrompt(expectation, queue, @"LifetimeEnergyConsumed", @"3");
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
 - (void)testSendClusterTest_TC_RH_1_1_000002_ReadAttribute
@@ -21565,7 +21754,17 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_RH_1_1_000003_ReadAttribute
+- (void)testSendClusterTest_TC_RH_1_1_000003_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:
+                  @"Read EventList attribute from the DUT and Verify that the DUT response provides a list of supported events."];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter 'y' for success", @"y");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_RH_1_1_000004_ReadAttribute
 {
     XCTestExpectation * expectation = [self expectationWithDescription:@"Read the global attribute: AcceptedCommandList"];
 
@@ -21586,7 +21785,7 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_RH_1_1_000004_ReadAttribute
+- (void)testSendClusterTest_TC_RH_1_1_000005_ReadAttribute
 {
     XCTestExpectation * expectation = [self expectationWithDescription:@"Read the global attribute: GeneratedCommandList"];
 
@@ -21684,7 +21883,17 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_RH_2_1_000003_ReadAttribute
+- (void)testSendClusterTest_TC_RH_2_1_000003_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read MaxMeasuredValue attribute from the DUT and Verify that the DUT response with an "
+                                         @"int16 value,response value should be in the range of 1 to 10000"];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter 'y' for success", @"y");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_RH_2_1_000004_ReadAttribute
 {
     XCTestExpectation * expectation = [self expectationWithDescription:@"Reads constraints of attribute: Tolerance"];
 
@@ -22327,25 +22536,14 @@ NSNumber * _Nonnull OccupancyValue;
     WaitForCommissionee(expectation, queue, 305414945);
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_TM_1_1_000001_ReadAttribute
+- (void)testSendClusterTest_TC_TM_1_1_000001_UserPrompt
 {
-    XCTestExpectation * expectation = [self expectationWithDescription:@"Read the global attribute constraints: ClusterRevision"];
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read ClusterRevision attribute from the DUT and Verify that the DUT response indicates "
+                                         @"ClusterRevision attribute has the value 4"];
 
-    CHIPDevice * device = GetConnectedDevice();
     dispatch_queue_t queue = dispatch_get_main_queue();
-    CHIPTestTemperatureMeasurement * cluster = [[CHIPTestTemperatureMeasurement alloc] initWithDevice:device
-                                                                                             endpoint:1
-                                                                                                queue:queue];
-    XCTAssertNotNil(cluster);
-
-    [cluster readAttributeClusterRevisionWithCompletionHandler:^(NSNumber * _Nullable value, NSError * _Nullable err) {
-        NSLog(@"Read the global attribute constraints: ClusterRevision Error: %@", err);
-
-        XCTAssertEqual([CHIPErrorTestUtils errorToZCLErrorCode:err], 0);
-
-        [expectation fulfill];
-    }];
-
+    UserPrompt(expectation, queue, @"Please enter ClusterRevision attribute value", @"4");
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
 - (void)testSendClusterTest_TC_TM_1_1_000002_ReadAttribute
@@ -22367,6 +22565,36 @@ NSNumber * _Nonnull OccupancyValue;
         [expectation fulfill];
     }];
 
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_TM_1_1_000003_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:
+                  @"Read EventList attribute from the DUT and Verify that the DUT response provides a list of supported events."];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter 'y' for success", @"y");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_TM_1_1_000004_UserPrompt
+{
+    XCTestExpectation * expectation = [self
+        expectationWithDescription:@"Read AcceptedCommandList attribute from the DUT and Verify that the DUT response provides a "
+                                   @"list of supported commands,This list SHALL include all the mandatory commands."];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter 'y' for success", @"y");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_TM_1_1_000005_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read GeneratedCommandList attribute from the DUT and Verify that the DUT response "
+                                         @"provides a list of supported commands."];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter 'y' for success", @"y");
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
 
@@ -24710,24 +24938,14 @@ NSNumber * _Nonnull OccupancyValue;
     WaitForCommissionee(expectation, queue, 305414945);
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_TSUIC_1_1_000001_ReadAttribute
+- (void)testSendClusterTest_TC_TSUIC_1_1_000001_UserPrompt
 {
-    XCTestExpectation * expectation = [self expectationWithDescription:@"Read the global attribute constraints: ClusterRevision"];
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:@"Read ClusterRevision attribute from the DUT and Verify that the DUT response indicates "
+                                         @"ClusterRevision attribute has the value 2"];
 
-    CHIPDevice * device = GetConnectedDevice();
     dispatch_queue_t queue = dispatch_get_main_queue();
-    CHIPTestThermostatUserInterfaceConfiguration * cluster =
-        [[CHIPTestThermostatUserInterfaceConfiguration alloc] initWithDevice:device endpoint:1 queue:queue];
-    XCTAssertNotNil(cluster);
-
-    [cluster readAttributeClusterRevisionWithCompletionHandler:^(NSNumber * _Nullable value, NSError * _Nullable err) {
-        NSLog(@"Read the global attribute constraints: ClusterRevision Error: %@", err);
-
-        XCTAssertEqual([CHIPErrorTestUtils errorToZCLErrorCode:err], 0);
-
-        [expectation fulfill];
-    }];
-
+    UserPrompt(expectation, queue, @"Please enter ClusterRevision attribute value", @"2");
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
 - (void)testSendClusterTest_TC_TSUIC_1_1_000002_ReadAttribute
@@ -24750,7 +24968,17 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_TSUIC_1_1_000003_ReadAttribute
+- (void)testSendClusterTest_TC_TSUIC_1_1_000003_UserPrompt
+{
+    XCTestExpectation * expectation =
+        [self expectationWithDescription:
+                  @"Read EventList attribute from the DUT and Verify that the DUT response provides a list of supported events."];
+
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    UserPrompt(expectation, queue, @"Please enter 'y' for success", @"y");
+    [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
+}
+- (void)testSendClusterTest_TC_TSUIC_1_1_000004_ReadAttribute
 {
     XCTestExpectation * expectation = [self expectationWithDescription:@"Read the global attribute: AcceptedCommandList"];
 
@@ -24770,7 +24998,7 @@ NSNumber * _Nonnull OccupancyValue;
 
     [self waitForExpectationsWithTimeout:kTimeoutInSeconds handler:nil];
 }
-- (void)testSendClusterTest_TC_TSUIC_1_1_000004_ReadAttribute
+- (void)testSendClusterTest_TC_TSUIC_1_1_000005_ReadAttribute
 {
     XCTestExpectation * expectation = [self expectationWithDescription:@"Read the global attribute: GeneratedCommandList"];
 
