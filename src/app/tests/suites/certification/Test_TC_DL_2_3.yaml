@@ -12,9 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name:
-    108.2.4. [TC-DL-2.4] Verification for Unlock with Timeout command
-    [DUT-Server]
+name: 108.2.3. [TC-DL-2.3] Verification for Unlock Door command [DUT-Server]
 
 config:
     nodeId: 0x12344321
@@ -70,13 +68,11 @@ tests:
       arguments:
           value: 10
 
-    - label: "TH sends the unlock with Timeout command to the DUT "
-      command: "UnlockWithTimeout"
+    - label: "TH sends the unlock Door command to the DUT with valid PINCode"
+      command: "UnlockDoor"
       timedInteractionTimeoutMs: 10000
       arguments:
           values:
-              - name: "Timeout"
-                value: 5
               - name: "PINCode"
                 value: "123456"
 
@@ -86,16 +82,24 @@ tests:
       response:
           value: 10
 
-    - label: "Wait 5000ms"
+    - label: "Wait 10000ms"
       cluster: "DelayCommands"
       command: "WaitForMs"
       arguments:
           values:
               - name: "ms"
-                value: 5000
+                value: 10000
 
     - label: "TH reads LockState attriute"
       command: "readAttribute"
       attribute: "LockState"
       response:
           value: 1
+
+    - label: "Clean the created credential"
+      command: "ClearCredential"
+      timedInteractionTimeoutMs: 10000
+      arguments:
+          values:
+              - name: "credential"
+                value: { CredentialType: 1, CredentialIndex: 1 }
